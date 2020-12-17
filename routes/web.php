@@ -24,7 +24,12 @@ Route::get('/home', function(){
 	return view('home');
 });
 
+Route::post('/upload', function(Request $request){
+	dd($request->photo);
+});
+
 Route::get('/user', [UserController::class,'index']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

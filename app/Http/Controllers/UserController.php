@@ -37,11 +37,11 @@ class UserController extends Controller
 
 
     	/* alternative create*/
-    	$data = [
-    		'name' => 'Elonmust',
-    		'email' => 'elonate@gmail.com',
-    		'password' => 'aSsWorD',
-    	];
+    	// $data = [
+    	// 	'name' => 'Benajmins Andoh',
+    	// 	'email' => 'benoos.andoh@gmail.com',
+    	// 	'password' => 'Aiti2017',
+    	// ];
     	// User::create($data);
     
     //4. select all 
