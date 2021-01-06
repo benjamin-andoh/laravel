@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <form action="/upload" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="image">
                         <input type="submit" value="upload" />

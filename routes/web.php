@@ -24,11 +24,10 @@ Route::get('/home', function(){
 	return view('home');
 });
 
-Route::post('/upload', function(Request $request){
-	dd($request->photo);
-});
-
+;
+ 
 Route::get('/user', [UserController::class,'index']);
+Route::post('/upload', [UserController::class,'uploadAvatar']);
 
 Auth::routes();
 

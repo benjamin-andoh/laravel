@@ -8,8 +8,28 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+	public function uploadAvatar(Request $request){
+
+		if($request->hasFile('image')){
+			$filename = $request->image->getClientOriginalName();
+			if(auth()->user()->avatar){
+				Storage::delete('/public/images/'.auth()->user()->avatar);
+			}
+			$request->image->storeAs('images', '$filename','public');
+			auth()->user()->update(['avatar' => $filename]);
+		}
+		return redirect()->back();
+	}
+
     public  function index()
     {
+		dd('/public/images/'.auth()->user()->avatar);
+		// $user = new User();
+		// $user->name = 'andoh';
+		// $user->email = 'andoh@gmail.com';
+		// $user->password = 'Aiti2017';
+		// $user->save();
+
     	/* raw queries */
     	// DB::insert('insert into users (name, email, password) values(?,?,?)', ['alhaji', 'alhaji@gmail.com', 'passWord']);
     	
@@ -45,9 +65,9 @@ class UserController extends Controller
     	// User::create($data);
     
     //4. select all 
-    	$user = User::all();
+    	// $user = User::all();
 
-    	return $user;
+    	// return $user;
     	
     }
 }
